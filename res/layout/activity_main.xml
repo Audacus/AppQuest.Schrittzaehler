@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -14,34 +15,64 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:onClick="readQrCodeStart"
-        android:text="@string/read_qr_code_start" />
+        android:onClick="start"
+        android:text="@string/start" />
 
-    <Button
-        android:id="@+id/buttonReadQrCodeEnd"
+    <TextView
+        android:id="@+id/textViewStationStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/buttonReadQrCodeStart"
         android:layout_below="@+id/buttonReadQrCodeStart"
-        android:onClick="readQrCodeEnd"
-        android:text="@string/read_qr_code_end" />
+        android:text="@string/station_start"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/button2"
+    <TextView
+        android:id="@+id/textViewStationStartValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/buttonReadQrCodeEnd"
-        android:layout_below="@+id/buttonReadQrCodeEnd"
-        android:onClick="startActivityWalk"
-        android:text="@string/start_activity_walk" />
+        android:layout_alignBottom="@+id/textViewStationStart"
+        android:layout_marginLeft="26dp"
+        android:layout_toRightOf="@+id/textViewStationStart"
+        android:text="@string/station_start_value"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/button1"
+    <TextView
+        android:id="@+id/textViewStationEndValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_below="@+id/button2"
-        android:onClick="startActivityTurn"
-        android:text="@string/start_activity_turn" />
+        android:layout_alignBaseline="@+id/textViewStationEnd"
+        android:layout_alignBottom="@+id/textViewStationEnd"
+        android:layout_alignLeft="@+id/textViewStationStartValue"
+        android:text="@string/station_end_value"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textViewStationEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewStationStart"
+        android:layout_below="@+id/textViewStationStart"
+        android:text="@string/station_end"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TableLayout
+        android:id="@+id/tableLayoutInstructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewStationEnd"
+        android:layout_below="@+id/textViewStationEndValue"
+        android:layout_marginTop="14dp"
+        android:gravity="center" >
+    </TableLayout>
+
+    <Button
+        android:id="@+id/buttonResume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/tableLayoutInstructions"
+        android:onClick="resume"
+        android:text="@string/resume" />
 
 </RelativeLayout>

@@ -24,5 +24,6 @@ public enum Direction {
 			}
 		}
 		throw new IllegalArgumentException("No constant with direction " + direction + " found");
+//		return null;
 	}
 }

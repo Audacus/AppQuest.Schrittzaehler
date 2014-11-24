@@ -6,7 +6,9 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
+import ch.fenceposts.appquest.schrittzaehler.direction.Direction;
 import ch.fenceposts.appquest.schrittzaehler.ringbuffer.RingBuffer;
 
 public class TurnActivity extends Activity implements SensorEventListener {
@@ -17,6 +19,8 @@ public class TurnActivity extends Activity implements SensorEventListener {
 	private RingBuffer initialRotation = new RingBuffer(BUFFER_SIZE);
 	private RingBuffer rotation = new RingBuffer(BUFFER_SIZE);
 	private Sensor rotationSensor;
+	private TextView textViewTurn;
+	private Direction direction;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,11 @@ public class TurnActivity extends Activity implements SensorEventListener {
 		setContentView(R.layout.activity_turn);
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		rotationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+		
+		textViewTurn = (TextView) findViewById(R.id.textViewWalk);
+		direction = Direction.fromString(getIntent().getStringExtra("ch.fenceposts.schrittzaehler.turn.direction"));
+		
+		textViewTurn.setText("turn " + direction + "!");
 	}
 
 	@Override

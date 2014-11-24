@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">AppQuest Schrittzaehler</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="start_activity_turn">turn detection</string>
-    <string name="turn">turn!</string>
+    <string name="alert_no_instructions">no instructions found!\nplease read in instructions first</string>
+    <string name="alert_no_stations">no start and end station found!\nplease read in start and end station first</string>
+    <string name="app_name">AppQuest Schrittzaehler</string>
     <string name="drawable_image_description_turn">Shows android standard clipart to indicate a turn</string>
     <string name="drawable_image_description_walk">Shows android standard clipart to indicate a straight go</string>
-    <string name="read_qr_code_start">read qr start</string>
-    <string name="read_qr_code_end">read qr end</string>
+    <string name="resume">resume</string>
+    <string name="start">start</string>
+    <string name="station_end">end station</string>
+    <string name="station_end_value">end_station</string>
+    <string name="station_start">start station</string>
+    <string name="station_start_value">start_station</string>
     <string name="title_activity_turn">Turn Detection</string>
     <string name="title_activity_walk">Walk Steps</string>
-    <string name="walk">walk!</string>
-    <string name="start_activity_walk">walk detection</string>
+    <string name="turn">turn direction!</string>
+    <string name="walk">walk steps!</string>
 
 </resources>

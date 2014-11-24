@@ -10,7 +10,7 @@
     tools:context=".TurnActivity" >
 
     <TextView
-        android:id="@+id/textViewTurn"
+        android:id="@+id/textViewWalk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageViewWarning"
