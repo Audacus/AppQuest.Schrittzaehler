@@ -4,17 +4,17 @@ package ch.fenceposts.appquest.schrittzaehler.direction;
 public enum Direction {
 	RIGHT("rechts"),
 	LEFT("links");
-	
-	private String direction;
-	
+
+	private String	direction;
+
 	Direction(String direction) {
 		this.direction = direction;
 	}
-	
+
 	public String getDirection() {
 		return this.direction;
 	}
-	
+
 	public static Direction fromString(String direction) {
 		if (direction != null) {
 			for (Direction d : Direction.values()) {
@@ -24,6 +24,6 @@ public enum Direction {
 			}
 		}
 		throw new IllegalArgumentException("No constant with direction " + direction + " found");
-//		return null;
+		// return null;
 	}
 }

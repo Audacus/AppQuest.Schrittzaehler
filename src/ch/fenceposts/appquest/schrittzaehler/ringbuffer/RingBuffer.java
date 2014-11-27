@@ -1,10 +1,11 @@
 package ch.fenceposts.appquest.schrittzaehler.ringbuffer;
 
 public class RingBuffer {
-	private float[] buffer;
-	private int capacity;
-	private int current = 0;
-	private int count = 0;
+
+	private float[]	buffer;
+	private int		capacity;
+	private int		current	= 0;
+	private int		count	= 0;
 
 	public int getCount() {
 		return count;
