@@ -21,6 +21,7 @@ public class WalkActivity extends Activity {
 	private static final String	DEBUG_TAG		= "mydebug";
 	private static final String	DEBUG_TAG_TTS	= "mytts";
 	private int					steps;
+	private Sensor				accelerometerSensor;
 	private SensorManager		sensorManager;
 	private StepCounter			stepCounter;
 	private StepListener		stepListener;
@@ -33,7 +34,7 @@ public class WalkActivity extends Activity {
 		setContentView(R.layout.activity_walk);
 
 		sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-		Sensor accelerometerSensor = sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER).get(0);
+		accelerometerSensor = sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER).get(0);
 
 		stepListener = new StepListener() {
 
@@ -49,10 +50,6 @@ public class WalkActivity extends Activity {
 			}
 		};
 
-		stepCounter = new StepCounter(stepListener);
-
-		sensorManager.registerListener(stepCounter, accelerometerSensor, SensorManager.SENSOR_DELAY_UI);
-
 		textViewWalk = (TextView) findViewById(R.id.textViewWalk);
 		steps = getIntent().getIntExtra("ch.fenceposts.schrittzaehler.walk.steps", 42);
 		writeSteps();
@@ -61,6 +58,10 @@ public class WalkActivity extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
+
+		stepCounter = new StepCounter(stepListener);
+
+		sensorManager.registerListener(stepCounter, accelerometerSensor, SensorManager.SENSOR_DELAY_UI);
 
 		textToSpeech = new TextToSpeech(this, new OnInitListener() {
 
@@ -81,6 +82,8 @@ public class WalkActivity extends Activity {
 	@Override
 	public void onPause() {
 		super.onPause();
+
+		sensorManager.unregisterListener(stepCounter);
 
 		if (textToSpeech != null) {
 			textToSpeech.stop();
